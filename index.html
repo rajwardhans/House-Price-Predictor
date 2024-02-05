@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>ML Deployment</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  
+</head>
+<body>
+ <div class="login">
+	<h1>Predict Salary from Years of Experience</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	 <!-- Price,Bedroom,Space,Room,Lot,Tax,Bathroom,Garage,Condition -->
+    	<input type="text" name="bedroom" placeholder="Bedrooms" />
+    	<input type="text" name="space" placeholder="Space (sq. ft.)" required="required" />
+    	<input type="text" name="room" placeholder="Rooms" required="required" />
+    	<input type="text" name="lot" placeholder="Lot Size (sq. ft.)" required="required" />
+    	<input type="text" name="tax" placeholder="Tax ($)" required="required" />
+    	<input type="text" name="bathroom" placeholder="Bathrooms" required="required" />
+    	<input type="text" name="garage" placeholder="Garages" required="required" />
+      <input type="text" name="condition" placeholder="Condition (0: bad, 1: good)" required="required" />
+
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+ </div>
+</body>
+</html>
